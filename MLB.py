@@ -23,7 +23,7 @@ def show_linescore():
 	print(line_score)
 
 
-second_check = input("Do you want to see the latest full boxscore (1) or linescore(2)?")
+second_check = input("Do you want to see the latest full boxscore (1) or linescore (2)?")
 
 if second_check == "1":
 	show_boxscore()
