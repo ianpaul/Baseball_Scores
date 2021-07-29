@@ -9,5 +9,3 @@ or for Python 3
 
 Then just run the script from the command line and follow the directions. 
 
-The script isn't very smart  at this point. To play it safe just use your desired team's name, and not the location, such as Yankees,
-Blue Jays, Diamondbacks, Rangers, and so on.
