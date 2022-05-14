@@ -1,5 +1,6 @@
 # MLB
-This is a short Python script that gives you the latest boxscore or linescore for a given MLB team. 
+This is a Python script that gives you some basic MLB information on the command line. It can show you the latest boxscore or linescore for a given MLB team; a list of upcoming games for your team; or the current standings for the AL, NL, or both. 
+
 It relies on the [statsapi wrapper by Todd Roberts](https://github.com/toddrob99/MLB-StatsAPI).
 
 To use this script you need to install the wrapper first:
