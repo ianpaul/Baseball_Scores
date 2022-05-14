@@ -1,8 +1,5 @@
 import statsapi
-import re
-import datetime
 from datetime import date, timedelta
-from dateutil import tz
 from dateutil.tz import tzlocal
 from dateutil.parser import isoparse
 import pytz
@@ -61,8 +58,6 @@ else:
             agenda = statsapi.schedule(start_date=date.today(),end_date=date.today() + timedelta(days=2),team=crew)
             for x in agenda:
                 appt = x['game_datetime']
-                #pattern = r'Z'
-                #mod_appt = re.sub(pattern, '',appt)
                 utc_time = isoparse(appt)
                 add_zone = utc_time.replace(tzinfo=pytz.utc)
                 local_time = add_zone.astimezone(tzlocal())
