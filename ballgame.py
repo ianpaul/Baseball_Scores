@@ -1,8 +1,11 @@
 import statsapi
 import re
+import datetime
 from datetime import date, timedelta
+from dateutil import tz
 from dateutil.tz import tzlocal
 from dateutil.parser import isoparse
+import pytz
 
 txt1 = input("What would you like to see: \n(1) Latest game results \n(2) Schedule information \n(3) MLB standings \n")
 data_req = txt1
@@ -58,11 +61,12 @@ else:
             agenda = statsapi.schedule(start_date=date.today(),end_date=date.today() + timedelta(days=2),team=crew)
             for x in agenda:
                 appt = x['game_datetime']
-                pattern = r'Z'
-                mod_appt = re.sub(pattern, '',appt)
-                utc_time = isoparse(mod_appt) 
-                local_time = utc_time.astimezone(tzlocal())
-                local_game_time = local_time.strftime("%Y-%m-%d %H:%M")
-                print(local_game_time + " - " + x['away_name'] + " @ " + x['home_name'] + " (" + x['status'] + ")")
+                #pattern = r'Z'
+                #mod_appt = re.sub(pattern, '',appt)
+                utc_time = isoparse(appt)
+                add_zone = utc_time.replace(tzinfo=pytz.utc)
+                local_time = add_zone.astimezone(tzlocal())
+                #local_game_time = local_time.strftime("%Y-%m-%d %H:%M")
+                print(local_time) # + " - " + x['away_name'] + " @ " + x['home_name'] + " (" + x['status'] + ")")
 
         sched()
