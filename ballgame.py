@@ -66,7 +66,7 @@ else:
                 utc_time = isoparse(appt)
                 add_zone = utc_time.replace(tzinfo=pytz.utc)
                 local_time = add_zone.astimezone(tzlocal())
-                #local_game_time = local_time.strftime("%Y-%m-%d %H:%M")
-                print(local_time) # + " - " + x['away_name'] + " @ " + x['home_name'] + " (" + x['status'] + ")")
+                local_game_time = local_time.strftime("%Y-%m-%d %H:%M")
+                print(local_game_time + " - " + x['away_name'] + " @ " + x['home_name'] + " (" + x['status'] + ")")
 
         sched()
